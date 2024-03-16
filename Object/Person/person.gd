@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 class_name Person
 
+@onready var SELECTED_MESH: MeshInstance3D = $SelectedMesh
+
 var person_id: int = -1
 
 var castle_location: Vector2i = Vector2i( - 1, -1)
@@ -18,8 +20,14 @@ func set_tile(tile: TileInfo) -> void:
 func move_to_tile(tile: TileInfo) -> void:
   target_location = tile.location
 
+func selected() -> void:
+  SELECTED_MESH.visible = true
+
+func unselect() -> void:
+  SELECTED_MESH.visible = false
+
 func _ready():
-  pass
+  SELECTED_MESH.visible = false
 
 func _physics_process(delta):
   if target_location.x >= 0 and target_location.y >= 0:

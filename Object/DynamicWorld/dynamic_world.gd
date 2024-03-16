@@ -55,7 +55,7 @@ func init_nature():
     set_tile_in_grid(tile, NATURE_MAP)
 
 func init_cover():
-  var castle = TileInfo.create(Vector2i(1, 1), TileInfo.ITEM_CASTLE, 0, true)
+  var castle = TileInfo.create(Vector2i(1, 1), TileInfo.ITEM_CASTLE[1], 0, true)
   set_tile_in_grid(castle, COVER_MAP)
 
 func init_person():
@@ -82,6 +82,7 @@ func cancel_selected():
     remove_child(selected_tile)
     selected_tile = null
   if selected_person != null:
+    selected_person.unselect()
     selected_person = null
 
 func try_click(from: Vector3, direct: Vector3):
@@ -111,7 +112,8 @@ func try_click(from: Vector3, direct: Vector3):
     else:
       cancel_selected()
   elif result and result.collider is Person:
-    print(result.collider)
+    selected_person = result.collider
+    selected_person.selected()
 
 func _physics_process(delta: float) -> void:
   pass

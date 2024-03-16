@@ -1,54 +1,25 @@
 class_name TileInfo
 
-const TILE_DEFAULT_SIZE = Vector2(1, 1)
-
-const ITEM_GRASS = {
-  1: 0,
-}
-const ITEM_SOIL = {
-  1: 1,
-}
-const ITEM_WATER = {
-  1: 2,
-}
-const ITEM_WOOD = {
-  1: 3,
-}
-const ITEM_STONE = {
-  1: 4,
-}
-const ITEM_FOOD = {
-  1: 5,
-}
-const ITEM_CASTLE = {
-  1: 6,
-}
-const TILE_SIZE_MAP = {
-  (ITEM_CASTLE[1]): Vector2(3, 3),
-}
-
 var location: Vector2i
 var item: int
 var orientation: int
 var your: bool
+var detail: Tile
 
-static func create(
+func _init(
   _location: Vector2i,
   _item: int,
   _orientation: int,
   _your: bool,
-  ) -> TileInfo:
-  var info = TileInfo.new()
-  info.location = _location
-  info.item = _item
-  info.orientation = _orientation
-  info.your = _your
-  return info
+  ):
+  location = _location
+  item = _item
+  orientation = _orientation
+  your = _your
+  detail = Global.TILE_ITEM_MAP[item]
 
 func get_tile_size() -> Vector2:
-  if item in TILE_SIZE_MAP:
-    return TILE_SIZE_MAP[item]
-  return TILE_DEFAULT_SIZE
+  return detail.size
 
 func get_tile_location_3d() -> Vector3i:
   return Vector3(location.x, 0, location.y)

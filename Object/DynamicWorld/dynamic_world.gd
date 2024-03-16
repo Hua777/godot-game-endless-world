@@ -51,11 +51,11 @@ func init_nature():
   for location in save_map.get_used_cells():
     var item = save_map.get_cell_item(location)
     var orientation = save_map.get_cell_item_orientation(location)
-    var tile = TileInfo.create(Vector2i(location.x, location.z), item, orientation, false)
+    var tile = TileInfo.new(Vector2i(location.x, location.z), item, orientation, false)
     set_tile_in_grid(tile, NATURE_MAP)
 
 func init_cover():
-  var castle = TileInfo.create(Vector2i(1, 1), TileInfo.ITEM_CASTLE[1], 0, true)
+  var castle = TileInfo.new(Vector2i(1, 1), Global.TILE_CASTLE_LV1.item, 0, true)
   set_tile_in_grid(castle, COVER_MAP)
 
 func init_person():

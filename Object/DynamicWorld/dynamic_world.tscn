@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://78osgswdktyo"]
+
+[ext_resource type="Script" path="res://Object/DynamicWorld/dynamic_world.gd" id="1_7b3o7"]
+[ext_resource type="MeshLibrary" uid="uid://dt14iurevctmk" path="res://Meshlib/Nature/nature.meshlib" id="2_oevqc"]
+
+[node name="DynamicWorld" type="Node3D"]
+script = ExtResource("1_7b3o7")
+
+[node name="BaseGridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_oevqc")
+cell_size = Vector3(1, 0.2, 1)

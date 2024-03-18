@@ -1,15 +1,15 @@
-class_name TileFood
+class_name TileStone
 
 extends TileWithLevel
 
 func _init(_level: int):
   var g = -1
   if _level == 1:
-    g = 5
+    g = 4
   super(
     g,
     1, 1,
     _level,
-    '食物',
+    '石头',
   )
-  food_per_second = _level
+  stone_per_second = _level

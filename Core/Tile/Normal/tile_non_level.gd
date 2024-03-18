@@ -8,4 +8,3 @@ func _init(_grid_map_item_id: int, _width: int, _height: int, _moveable: bool, _
   height = _height
   moveable = _moveable
   name = _name
-  level = 0

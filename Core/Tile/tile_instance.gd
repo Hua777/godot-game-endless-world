@@ -4,7 +4,7 @@ class_name TileInstance
 var location: Vector2i
 
 # 详细信息
-var detail: TileConst
+var detail: TileBase
 
 # 转向
 var grid_map_orientation: int
@@ -32,8 +32,8 @@ func get_position_3d() -> Vector3:
 # 获取相邻几个坐标
 func get_neighbor_locations() -> Array[Vector2i]:
   var result: Array[Vector2i] = []
-  var rx = detail.width / 2
-  var ry = detail.height / 2
+  var rx = int(detail.width / 2)
+  var ry = int(detail.height / 2)
   for i in range(location.x - rx - 1, location.x + rx + 2):
     for j in range(location.y - ry - 1, location.y + ry + 2):
       if (i < location.x - rx or i > location.x + rx) or (j < location.y - ry or j > location.y + ry):

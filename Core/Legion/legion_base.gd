@@ -1,17 +1,19 @@
 class_name LegionBase
 
-var leaders: Array[LeaderBase] = []
+var name: String = '无'
 
-var arms: Array[ArmBase] = []
+var leaders: Array[Attackable] = []
 
-func wartime_prepare(legion: LegionBase) -> void:
+var arms: Array[Attackable] = []
+
+func still_alive() -> bool:
   for leader in leaders:
-    leader.wartime_property_adjust = PropertyBase.new()
+    if leader.still_alive():
+      return true
   for arm in arms:
-    arm.wartime_property_adjust = PropertyBase.new()
+    if arm.still_alive():
+      return true
+  return false
 
-func attack(legion: LegionBase) -> Array[AttackPackage]:
-  return []
-
-func defense(package: AttackPackage) -> AttackPackage:
-  return package
+func _to_string() -> String:
+  return 'name = %s' % [name]

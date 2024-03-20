@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvtll2marspfr"]
+
+[ext_resource type="Script" path="res://Core/core_test.gd" id="1_vaxg4"]
+
+[node name="CoreTest" type="Node"]
+script = ExtResource("1_vaxg4")

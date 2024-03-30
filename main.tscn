@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://boft82u1o8ftx"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_1gkns"]
+[ext_resource type="PackedScene" uid="uid://78osgswdktyo" path="res://Object/DynamicWorld/dynamic_world.tscn" id="1_eb84v"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4uyq1"]
+
+[sub_resource type="Sky" id="Sky_b7x17"]
+sky_material = SubResource("PhysicalSkyMaterial_4uyq1")
+
+[sub_resource type="Environment" id="Environment_ygv1m"]
+background_mode = 2
+background_color = Color(0.584314, 0.584314, 0.584314, 1)
+sky = SubResource("Sky_b7x17")
+sky_rotation = Vector3(-6.28319, 0, 0)
+tonemap_mode = 2
+tonemap_exposure = 0.8
+tonemap_white = 1.2
+ssr_fade_in = 0.689218
+ssr_fade_out = 0.435275
+fog_enabled = true
+fog_light_color = Color(0.403922, 0.439216, 0.490196, 1)
+fog_light_energy = 0.5
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_1gkns")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ygv1m")
+
+[node name="DirectionalLight3D_SKY" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -25, 30, -25)
+sky_mode = 2
+
+[node name="DirectionalLight3D_SUN" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -25, 30, -25)
+light_energy = 3.0
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.707107, 0.612373, -0.353553, 0, 0.5, 0.866026, 0.707107, 0.612373, -0.353553, -2, 8, -2)
+
+[node name="DynamicWorld" parent="." instance=ExtResource("1_eb84v")]

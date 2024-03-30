@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b15alg0pkr4tl"]
+
+[ext_resource type="Script" path="res://Object/OwnerTile/owner_tile.gd" id="1_qcwsr"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7cou5"]
+transparency = 1
+albedo_color = Color(0, 1, 0, 0.188235)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s6euq"]
+material = SubResource("ORMMaterial3D_7cou5")
+size = Vector2(1, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_niac3"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.188235)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mgq5i"]
+material = SubResource("ORMMaterial3D_niac3")
+size = Vector2(1, 1)
+
+[node name="OwnerTile" type="Node3D"]
+script = ExtResource("1_qcwsr")
+
+[node name="GreenPlane" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_s6euq")
+
+[node name="RedPlane" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_mgq5i")

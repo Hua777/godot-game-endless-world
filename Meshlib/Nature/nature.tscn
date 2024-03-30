@@ -1,0 +1,143 @@
+[gd_scene load_steps=23 format=3 uid="uid://sh3jun6d8kj2"]
+
+[ext_resource type="Shader" path="res://GdShader/water.gdshader" id="1_1ypwi"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_y4pwk"]
+albedo_color = Color(0.109804, 0.321569, 0, 1)
+emission = Color(0, 0.207843, 0.0862745, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_45mvg"]
+material = SubResource("ORMMaterial3D_y4pwk")
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d8u3l"]
+data = PackedVector3Array(-0.5, 0.15, 0.5, 0.5, 0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, -0.5, 0.5, -0.15, -0.5, -0.5, 0.15, -0.5, -0.5, -0.15, -0.5, 0.5, -0.15, -0.5, 0.5, 0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, -0.5, 0.5, -0.15, 0.5, -0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, 0.15, 0.5, -0.5, 0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, 0.15, -0.5, 0.5, 0.15, -0.5, -0.5, -0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, -0.15, 0.5, 0.5, -0.15, -0.5, -0.5, -0.15, -0.5)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_174v2"]
+albedo_color = Color(0.396078, 0.172549, 0, 1)
+emission = Color(0.254902, 0.0745098, 0.0117647, 1)
+ao_enabled = true
+ao_light_affect = 0.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_cqx3l"]
+material = SubResource("ORMMaterial3D_174v2")
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c4seb"]
+data = PackedVector3Array(-0.5, 0.15, 0.5, 0.5, 0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, -0.5, 0.5, -0.15, -0.5, -0.5, 0.15, -0.5, -0.5, -0.15, -0.5, 0.5, -0.15, -0.5, 0.5, 0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, -0.5, 0.5, -0.15, 0.5, -0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, 0.15, 0.5, -0.5, 0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, 0.15, -0.5, 0.5, 0.15, -0.5, -0.5, -0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, -0.15, 0.5, 0.5, -0.15, -0.5, -0.5, -0.15, -0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gucrb"]
+render_priority = 0
+shader = ExtResource("1_1ypwi")
+shader_parameter/WaveSpeed = 0.01
+shader_parameter/WaveIntensity = 0.2
+shader_parameter/WaveColor = Color(0, 1, 0.986607, 1)
+shader_parameter/WaterColor = Color(0, 0.169643, 1, 1)
+shader_parameter/FoamSize = 0.1
+shader_parameter/WaterOpacity = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_h6ssp"]
+material = SubResource("ShaderMaterial_gucrb")
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8f4fq"]
+data = PackedVector3Array(-0.5, 0.15, 0.5, 0.5, 0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, -0.5, 0.5, -0.15, -0.5, -0.5, 0.15, -0.5, -0.5, -0.15, -0.5, 0.5, -0.15, -0.5, 0.5, 0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, -0.5, 0.5, -0.15, 0.5, -0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, 0.15, 0.5, -0.5, 0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, 0.15, -0.5, 0.5, 0.15, -0.5, -0.5, -0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, -0.15, 0.5, 0.5, -0.15, -0.5, -0.5, -0.15, -0.5)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_rwssv"]
+albedo_color = Color(0.337255, 0.203922, 0.0352941, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r18pt"]
+material = SubResource("ORMMaterial3D_rwssv")
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4w5si"]
+data = PackedVector3Array(-0.5, 0.15, 0.5, 0.5, 0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, -0.5, 0.5, -0.15, -0.5, -0.5, 0.15, -0.5, -0.5, -0.15, -0.5, 0.5, -0.15, -0.5, 0.5, 0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, -0.5, 0.5, -0.15, 0.5, -0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, 0.15, 0.5, -0.5, 0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, 0.15, -0.5, 0.5, 0.15, -0.5, -0.5, -0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, -0.15, 0.5, 0.5, -0.15, -0.5, -0.5, -0.15, -0.5)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_1bsda"]
+albedo_color = Color(0.372549, 0.372549, 0.372549, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jmu34"]
+material = SubResource("ORMMaterial3D_1bsda")
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_28uax"]
+data = PackedVector3Array(-0.5, 0.15, 0.5, 0.5, 0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, -0.5, 0.5, -0.15, -0.5, -0.5, 0.15, -0.5, -0.5, -0.15, -0.5, 0.5, -0.15, -0.5, 0.5, 0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, -0.5, 0.5, -0.15, 0.5, -0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, 0.15, 0.5, -0.5, 0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, 0.15, -0.5, 0.5, 0.15, -0.5, -0.5, -0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, -0.15, 0.5, 0.5, -0.15, -0.5, -0.5, -0.15, -0.5)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_yjwdd"]
+albedo_color = Color(0.541176, 0.490196, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_djbok"]
+material = SubResource("ORMMaterial3D_yjwdd")
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ghr54"]
+data = PackedVector3Array(-0.5, 0.15, 0.5, 0.5, 0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, -0.5, 0.5, -0.15, -0.5, -0.5, 0.15, -0.5, -0.5, -0.15, -0.5, 0.5, -0.15, -0.5, 0.5, 0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, 0.5, 0.5, 0.15, -0.5, 0.5, -0.15, -0.5, 0.5, -0.15, 0.5, -0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, -0.5, -0.5, 0.15, 0.5, -0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, 0.15, 0.5, -0.5, 0.15, 0.5, 0.5, 0.15, -0.5, -0.5, 0.15, 0.5, -0.5, 0.15, -0.5, 0.5, 0.15, -0.5, -0.5, -0.15, 0.5, 0.5, -0.15, 0.5, -0.5, -0.15, -0.5, 0.5, -0.15, 0.5, 0.5, -0.15, -0.5, -0.5, -0.15, -0.5)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_j7es8"]
+albedo_color = Color(0.72549, 0.72549, 0.72549, 1)
+heightmap_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_77pgo"]
+material = SubResource("ORMMaterial3D_j7es8")
+size = Vector3(3, 0.4, 3)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gxr1d"]
+data = PackedVector3Array(-1.5, 0.2, 1.5, 1.5, 0.2, 1.5, -1.5, -0.2, 1.5, 1.5, 0.2, 1.5, 1.5, -0.2, 1.5, -1.5, -0.2, 1.5, 1.5, 0.2, -1.5, -1.5, 0.2, -1.5, 1.5, -0.2, -1.5, -1.5, 0.2, -1.5, -1.5, -0.2, -1.5, 1.5, -0.2, -1.5, 1.5, 0.2, 1.5, 1.5, 0.2, -1.5, 1.5, -0.2, 1.5, 1.5, 0.2, -1.5, 1.5, -0.2, -1.5, 1.5, -0.2, 1.5, -1.5, 0.2, -1.5, -1.5, 0.2, 1.5, -1.5, -0.2, -1.5, -1.5, 0.2, 1.5, -1.5, -0.2, 1.5, -1.5, -0.2, -1.5, 1.5, 0.2, 1.5, -1.5, 0.2, 1.5, 1.5, 0.2, -1.5, -1.5, 0.2, 1.5, -1.5, 0.2, -1.5, 1.5, 0.2, -1.5, -1.5, -0.2, 1.5, 1.5, -0.2, 1.5, -1.5, -0.2, -1.5, 1.5, -0.2, 1.5, 1.5, -0.2, -1.5, -1.5, -0.2, -1.5)
+
+[node name="Nature" type="Node3D"]
+
+[node name="GrassLv1" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_45mvg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassLv1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassLv1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d8u3l")
+
+[node name="SoilLv1" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cqx3l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SoilLv1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SoilLv1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_c4seb")
+
+[node name="WaterLv1" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_h6ssp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WaterLv1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterLv1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8f4fq")
+
+[node name="WoodLv1" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_r18pt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WoodLv1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WoodLv1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4w5si")
+
+[node name="StoneLv1" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jmu34")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneLv1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoneLv1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_28uax")
+
+[node name="FoodLv1" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_djbok")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FoodLv1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FoodLv1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ghr54")
+
+[node name="CastleLv1" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_77pgo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CastleLv1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CastleLv1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gxr1d")

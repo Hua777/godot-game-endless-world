@@ -63,7 +63,7 @@ func init_db():
     )
   ''')
 
-  # 关卡建筑
+  # 关卡默认建筑
 
   db.query('''
     create table if not exists base_level_tile_build (
@@ -86,7 +86,7 @@ func init_db():
       classify VARCHAR(128) NOT NULL,
       rarity INTEGER NOT NULL,
       describe TEXT NOT NULL,
-      part VARCHAR(128) NOT NULL
+      part INTEGER NOT NULL
     )
   ''')
 
@@ -94,12 +94,11 @@ func init_db():
 
   db.query('''
     create table if not exists base_skill (
-      id INTEGER PRIMARY KEY NOT NULL,
+      algorithm_name VARCHAR(128) PRIMARY KEY NOT NULL,
       name VARCHAR(128) NOT NULL,
       classify VARCHAR(128) NOT NULL,
       rarity INTEGER NOT NULL,
-      describe TEXT NOT NULL,
-      algorithm_name VARCHAR(128) NOT NULL
+      describe TEXT NOT NULL
     )
   ''')
 
@@ -120,11 +119,11 @@ func init_db():
       intelligence REAL NOT NULL,
       speed REAL NOT NULL,
       defence REAL NOT NULL,
-      skill1_id INTEGER NOT NULL,
-      skill2_id INTEGER NOT NULL,
-      skill3_id INTEGER NOT NULL,
-      level_algorithm_when_exp_change TEXT NOT NULL,
-      property_algorithm_when_level_change TEXT NOT NULL
+      skill1_id VARCHAR(128) NOT NULL,
+      skill2_id VARCHAR(128) NOT NULL,
+      skill3_id VARCHAR(128) NOT NULL,
+      level_algorithm_when_exp_change VARCHAR(128) NOT NULL,
+      property_algorithm_when_level_change VARCHAR(128) NOT NULL
     )
   ''')
 
@@ -191,12 +190,12 @@ func init_db():
 
   db.query('''
     create table if not exists player_arm (
-      id INTEGER PRIMARY KEY NOT NULL,
       player_id INTEGER NOT NULL,
       attackable_id INTEGER NOT NULL,
       level INTEGER NOT NULL,
       current_life REAL NOT NULL,
-      current_count INTEGER NOT NULL
+      current_count INTEGER NOT NULL,
+      PRIMARY KEY (player_id, attackable_id)
     )
   ''')
 
@@ -213,6 +212,19 @@ func init_db():
       arm1_id INTEGER NOT NULL,
       arm2_id INTEGER NOT NULL,
       arm3_id INTEGER NOT NULL
+    )
+  ''')
+
+  # 地块驻扎的军团
+
+  db.query('''
+    create table if not exists player_level_tile_legion (
+      level_id INTEGER NOT NULL,
+      x INTEGER NOT NULL,
+      y INTEGER NOT NULL,
+      type INTEGER NOT NULL,
+      legion_id INTEGER NOT NULL,
+      PRIMARY KEY (level_id, x, y, legion_id)
     )
   ''')
 

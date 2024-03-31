@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://6u3gdhvncagg"]
+[gd_scene load_steps=3 format=3 uid="uid://cxi82xrxnaa88"]
 
 [ext_resource type="MeshLibrary" uid="uid://dt14iurevctmk" path="res://Meshlib/Nature/nature.meshlib" id="1_g18p5"]
 [ext_resource type="Script" path="res://Backend/creator/dynamic_world_creator.gd" id="2_c6gjj"]

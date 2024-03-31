@@ -8,7 +8,7 @@ const SelectedTileTscn: PackedScene = preload ("res://Object/SelectedTile/select
 const PersonTscn: PackedScene = preload ("res://Object/Person/person.tscn")
 const OwnerTileTscn: PackedScene = preload ("res://Object/OwnerTile/owner_tile.tscn")
 
-var 你选取的地块: SelectedTile = null
+var 你选取的地块:SelectedTile = null
 
 var 土地所有权标识字典 = {}
 
@@ -28,7 +28,7 @@ var 土地所有权标识字典 = {}
 
 func 刷新土地所有权(x, y):
   var location = Vector2i(x, y)
-  var db_player_tile = BackendInstance.get_tile_in_player_level(游戏等级, x,y)
+  var db_player_tile = BackendInstance.get_tile_in_player_level(游戏等级, x, y)
   if db_player_tile == null:
     if location in 土地所有权标识字典:
       remove_child(土地所有权标识字典[location])
@@ -44,7 +44,6 @@ func 刷新土地所有权(x, y):
     else:
       土地所有权标识字典[location].set_tile(x, y, db_tile_extend.width, db_tile_extend.height,
         Global.COLOR_FLAG_GREEN if db_player_tile.player_id == Global.PLAYER_YOU else Global.COLOR_FLAG_RED)
-
 
 func 移除地块(db_tile: Dictionary):
   BASE_GRID_MAP.set_cell_item(Vector3i(db_tile.x, 0, db_tile.y), -1, 0)
@@ -77,6 +76,7 @@ func 占领地块(player_id: int, x: int, y: int):
       var db_tile = BackendInstance.get_base_tile(db_player_tile.tile_id)
       if db_tile.type == Global.TILE_TYPE_BUILD:
         BackendInstance.remove_player_level_tile_build(游戏等级, x, y)
+        移除地块(db_player_tile)
         finished = true
     else:
       finished = true

@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://78osgswdktyo"]
+[gd_scene load_steps=7 format=3 uid="uid://78osgswdktyo"]
 
 [ext_resource type="Script" path="res://Object/DynamicWorld/dynamic_world.gd" id="1_7b3o7"]
 [ext_resource type="MeshLibrary" uid="uid://dt14iurevctmk" path="res://Meshlib/Nature/nature.meshlib" id="2_oevqc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxku0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y6cvm"]
+font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c5ywo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ac0aj"]
+font_size = 24
 
 [node name="DynamicWorld" type="Node3D"]
 script = ExtResource("1_7b3o7")
@@ -9,3 +19,89 @@ script = ExtResource("1_7b3o7")
 [node name="BaseGridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_oevqc")
 cell_size = Vector3(1, 0.2, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="顶部背景" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/顶部背景"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="顶部左侧头像" type="PanelContainer" parent="CanvasLayer/顶部背景/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wxku0")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/顶部背景/MarginContainer/顶部左侧头像"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="头像" type="TextureRect" parent="CanvasLayer/顶部背景/MarginContainer/顶部左侧头像/GridContainer"]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 4
+
+[node name="名字Label" type="Label" parent="CanvasLayer/顶部背景/MarginContainer/顶部左侧头像/GridContainer"]
+layout_mode = 2
+text = "我是机器人"
+label_settings = SubResource("LabelSettings_y6cvm")
+
+[node name="顶部右侧资源" type="PanelContainer" parent="CanvasLayer/顶部背景/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c5ywo")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/顶部背景/MarginContainer/顶部右侧资源"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 5
+
+[node name="食物Label" type="Label" parent="CanvasLayer/顶部背景/MarginContainer/顶部右侧资源/GridContainer"]
+layout_mode = 2
+text = "食物"
+label_settings = SubResource("LabelSettings_ac0aj")
+
+[node name="木头Label" type="Label" parent="CanvasLayer/顶部背景/MarginContainer/顶部右侧资源/GridContainer"]
+layout_mode = 2
+text = "木头"
+label_settings = SubResource("LabelSettings_ac0aj")
+
+[node name="石头Label" type="Label" parent="CanvasLayer/顶部背景/MarginContainer/顶部右侧资源/GridContainer"]
+layout_mode = 2
+text = "石头"
+label_settings = SubResource("LabelSettings_ac0aj")
+
+[node name="黄金Label" type="Label" parent="CanvasLayer/顶部背景/MarginContainer/顶部右侧资源/GridContainer"]
+layout_mode = 2
+text = "黄金"
+label_settings = SubResource("LabelSettings_ac0aj")
+
+[node name="钻石Label" type="Label" parent="CanvasLayer/顶部背景/MarginContainer/顶部右侧资源/GridContainer"]
+layout_mode = 2
+text = "钻石"
+label_settings = SubResource("LabelSettings_ac0aj")
+
+[node name="底部背景" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/底部背景"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10

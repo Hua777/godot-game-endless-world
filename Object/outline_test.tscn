@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://7asbbneicuig"]
+
+[ext_resource type="Shader" path="res://GdShader/outline.gdshader" id="1_5k2vm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v52fv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dfpve"]
+render_priority = 0
+shader = ExtResource("1_5k2vm")
+shader_parameter/outline_color = Color(0.215686, 0.215686, 0.215686, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg5pv"]
+next_pass = SubResource("ShaderMaterial_dfpve")
+
+[node name="OutlineTest" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_v52fv")
+surface_material_override/0 = SubResource("StandardMaterial3D_dg5pv")

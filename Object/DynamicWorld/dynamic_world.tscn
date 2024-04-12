@@ -52,7 +52,7 @@ stretch_mode = 4
 
 [node name="名字Label" type="Label" parent="CanvasLayer/顶部背景/MarginContainer/顶部左侧头像/GridContainer"]
 layout_mode = 2
-text = "我是机器人"
+text = "玩家"
 label_settings = SubResource("LabelSettings_y6cvm")
 
 [node name="顶部右侧资源" type="PanelContainer" parent="CanvasLayer/顶部背景/MarginContainer"]
